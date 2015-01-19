@@ -43,10 +43,6 @@ namespace SinglyLinkedListVisualizer
         private void InitializeLinkedList()
         {
             linkedList = new SinglyLinkedList();
-            for (int i = 0; i < 5; i++)
-            {
-                linkedList.AddLast(i.ToString());
-            }
         }
 
         private void Sort_Click(object sender, RoutedEventArgs e)
@@ -107,19 +103,30 @@ namespace SinglyLinkedListVisualizer
             }
 
             _graphToVisualize.AddVertex("SinglyLinkedList");
+            _graphToVisualize.AddVertex("null");
             foreach(SinglyLinkedListNode node in SinglyLinkedListNode.allNodes){
-                _graphToVisualize.AddVertex(node.Value);
+                _graphToVisualize.AddVertex(node.ToString());
             }
 
             foreach (SinglyLinkedListNode node in SinglyLinkedListNode.allNodes)
             {
-                if (node.Next != null)
+                if (node.Next == null)
                 {
-                    _graphToVisualize.AddEdge(new Edge<object>(node.Value, node.Next.Value));
+                    _graphToVisualize.AddEdge(new Edge<object>(node.ToString(), "null"));
+                }
+                else
+                {
+                    _graphToVisualize.AddEdge(new Edge<object>(node.ToString(), node.Next.ToString()));
                 }
             }
-
-            _graphToVisualize.AddEdge(new Edge<object>("SinglyLinkedList", linkedList.First()));
+            try
+            {
+                _graphToVisualize.AddEdge(new Edge<object>("SinglyLinkedList", linkedList.First() ?? "null"));
+            }
+            catch (NotImplementedException)
+            {
+                _graphToVisualize.AddEdge(new Edge<object>("SinglyLinkedList", "null"));
+            }
         }
     }
 }

@@ -10,7 +10,6 @@ namespace SinglyLinkedLists
         public SinglyLinkedList()
         {
             // NOTE: This constructor isn't necessary, once you've implemented the constructor below.
-            throw new NotImplementedException();
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx

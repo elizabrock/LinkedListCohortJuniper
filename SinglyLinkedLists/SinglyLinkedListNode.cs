@@ -41,7 +41,7 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
 
-            // Used by the visualizer.  Do not change.
+            // Used by the visualizer:
             allNodes.Add(this);
         }
 
