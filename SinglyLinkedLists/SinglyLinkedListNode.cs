@@ -8,6 +8,9 @@ namespace SinglyLinkedLists
 {
     public class SinglyLinkedListNode : IComparable
     {
+        // Used by the visualizer.  Do not change.
+        public static List<SinglyLinkedListNode> allNodes = new List<SinglyLinkedListNode>();
+
         // READ: http://msdn.microsoft.com/en-us/library/aa287786(v=vs.71).aspx
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
@@ -37,6 +40,9 @@ namespace SinglyLinkedLists
         public SinglyLinkedListNode(string value)
         {
             throw new NotImplementedException();
+
+            // Used by the visualizer.  Do not change.
+            allNodes.Add(this);
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/system.icomparable.compareto.aspx

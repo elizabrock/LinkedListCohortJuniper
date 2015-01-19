@@ -1,0 +1,45 @@
+﻿<Window x:Class="SinglyLinkedListVisualizer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:graphsharp="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
+        xmlns:sugiyama="clr-namespace:GraphSharp.Algorithms.Layout.Simple.Hierarchical;assembly=GraphSharp"
+        xmlns:zoom="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
+        Title="SinglyLinkedList Visualizer"
+        Height="525" 
+        Width="525"
+        x:Name="root">
+    <StackPanel Orientation="Vertical">
+        <StackPanel HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="524" Margin="0,1,0,0" Orientation="Horizontal">
+            <ComboBox HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Margin="5,4,5,0" Name="MethodList">
+            </ComboBox>
+            <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Argument1" VerticalAlignment="Top" Width="120" Margin="0,4,5,0" Name="Argument1"/>
+            <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Argument2" VerticalAlignment="Top" Width="120" Margin="0,4,5,0" Name="Argument2"/>
+            <Button Content="Run" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Margin="0,0,0,16" Click="Run_Click" Padding="1" Height="20"/>
+            <Button Content="Sort" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Margin="0,0,0,16" Click="Sort_Click" Padding="1" Height="20"/>
+        </StackPanel>
+        <zoom:ZoomControl Height="475" Width="525">
+            <graphsharp:GraphLayout x:Name="graphLayout" Graph="{Binding ElementName=root,Path=GraphToVisualize}" LayoutAlgorithmType="LinLog" OverlapRemovalAlgorithmType="FSA" HighlightAlgorithmType="Simple" Height="475" Width="450" Margin="75,0,0,0">
+                <graphsharp:GraphLayout.LayoutParameters>
+                    <sugiyama:EfficientSugiyamaLayoutParameters
+                            LayerDistance="10.0"
+                            VertexDistance="23.3"
+                            EdgeRouting="Orthogonal" />
+                </graphsharp:GraphLayout.LayoutParameters>
+            </graphsharp:GraphLayout>
+        </zoom:ZoomControl>
+    </StackPanel>
+    <Window.Resources>
+        <Style TargetType="{x:Type graphsharp:VertexControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type graphsharp:VertexControl}">
+                        <Border BorderBrush="Black" Background="White" BorderThickness="2" Padding="5">
+                            <TextBlock Text="{TemplateBinding Vertex}" Foreground="Black" />
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Window.Resources>
+</Window>
