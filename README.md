@@ -13,7 +13,7 @@ Instructions
     * http://www.extremeprogramming.org/rules/unittests.html
   2. Fork this repository and clone your fork
   3. Open SinglyLinkedLists.sln
-  4. [Use the TestExplorer to "Run All" Unit Tests.](http://msdn.microsoft.com/en-us/library/ms182470.aspx
+  4. [Use the TestExplorer to "Run All" Unit Tests.](http://msdn.microsoft.com/en-us/library/ms182470.aspx)
   5. Make the test suite pass by implementing the SinglyLinkedList and SinglyLinkedListNode classes
     * Choose one test at a time to work on
     * Once the tests pass, you should refactor and clean up your code
@@ -22,7 +22,7 @@ Instructions
 Test Run Modes
 --------------
 
-Note that there are individual Unit Tests, as well as two (Ordered Tests)[http://msdn.microsoft.com/en-us/library/ms182629(v=vs.90).aspx] (`BasicLinkedListImplementation` and `AdvancedLinkedListImplementation`). 
+Note that there are individual Unit Tests, as well as two [Ordered Tests](http://msdn.microsoft.com/en-us/library/ms182629(v=vs.90).aspx) (`BasicLinkedListImplementation` and `AdvancedLinkedListImplementation`). 
 
 The ordered test files run the tests in a fixed order, which can guide your implementation, Koans-style.  Or, you can choose individual Unit Tests to focus on and implement methods in an order of your own choosing.
 
