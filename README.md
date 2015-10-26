@@ -1,9 +1,6 @@
 # CSharpSinglyLinkedLists
 
-Cohort Grape (7) Linked List Project.
-
-This is the C# equivalent of https://github.com/elizabrock/linked_list_cohort_blueberry
-
+Cohort Juniper (7) Linked List Project.
 
 Instructions
 -----------
@@ -22,7 +19,7 @@ Instructions
 Test Run Modes
 --------------
 
-Note that there are individual Unit Tests, as well as two [Ordered Tests](http://msdn.microsoft.com/en-us/library/ms182629(v=vs.90).aspx) (`BasicLinkedListImplementation` and `AdvancedLinkedListImplementation`). 
+Note that there are individual Unit Tests, as well as two [Ordered Tests](http://msdn.microsoft.com/en-us/library/ms182629(v=vs.90).aspx) (`BasicLinkedListImplementation` and `AdvancedLinkedListImplementation`).
 
 The ordered test files run the tests in a fixed order, which can guide your implementation, Koans-style.  Or, you can choose individual Unit Tests to focus on and implement methods in an order of your own choosing.
 
