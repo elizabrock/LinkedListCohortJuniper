@@ -14,7 +14,10 @@ Instructions
   5. Make the test suite pass by implementing the SinglyLinkedList and SinglyLinkedListNode classes
     * Choose one test at a time to work on
     * Once the tests pass, you should refactor and clean up your code
-  6. Push your implementation up to github as you work on it.
+    * Do not use Arrays, Dictionaries, or any sort of Enumerablee
+    * Do not copy code (from the internet or your peers)
+  6. Push your implementation up to GitHub as you work on it.
+
 
 Test Run Modes
 --------------
