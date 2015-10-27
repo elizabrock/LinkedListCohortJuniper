@@ -115,10 +115,17 @@ namespace UnitTestSinglyLinkedLists
         }
 
         [TestMethod]
-        public void NodeToString()
+        public void NodeToString1()
         {
             SinglyLinkedListNode node = new SinglyLinkedListNode("foo");
             Assert.AreEqual("foo", node.ToString());
+        }
+
+        [TestMethod]
+        public void NodeToString2()
+        {
+            SinglyLinkedListNode node = new SinglyLinkedListNode("bar");
+            Assert.AreEqual("bar", node.ToString());
         }
     }
 }
