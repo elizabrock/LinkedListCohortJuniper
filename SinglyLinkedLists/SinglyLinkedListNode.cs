@@ -15,8 +15,18 @@ namespace SinglyLinkedLists
         private SinglyLinkedListNode next;
         public SinglyLinkedListNode Next
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get
+            {
+                return next;
+            }
+            set
+            {
+                if (this == value)
+                {
+                    throw new ArgumentException();
+                }
+                next = value;
+            }
         }
 
         private string value;
