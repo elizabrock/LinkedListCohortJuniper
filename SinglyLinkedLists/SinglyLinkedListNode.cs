@@ -61,6 +61,21 @@ namespace SinglyLinkedLists
             throw new NotImplementedException();
         }
 
+        public override bool Equals(object obj)
+        {
+            SinglyLinkedListNode other = obj as SinglyLinkedListNode;
+            if(other != null)
+            {
+                return (this.Value == other.Value);
+            }
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Value.GetHashCode();
+        }
+
         public bool IsLast()
         {
             //if(Next == null)
