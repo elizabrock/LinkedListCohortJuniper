@@ -115,11 +115,36 @@ namespace UnitTestSinglyLinkedLists
         }
 
         [TestMethod]
+        public void NodeCompareToGreaterThan()
+        {
+            SinglyLinkedListNode node1 = new SinglyLinkedListNode("foo");
+            SinglyLinkedListNode node2 = new SinglyLinkedListNode("bar");
+            Assert.AreEqual(1, node1.CompareTo(node2));
+        }
+
+        [TestMethod]
         public void NodeLesserThan()
         {
             SinglyLinkedListNode node1 = new SinglyLinkedListNode("foo");
             SinglyLinkedListNode node2 = new SinglyLinkedListNode("bar");
             Assert.IsTrue(node2 < node1);
+        }
+
+        [TestMethod]
+        public void NodeCompareToLesserThan()
+        {
+            SinglyLinkedListNode node1 = new SinglyLinkedListNode("foo");
+            SinglyLinkedListNode node2 = new SinglyLinkedListNode("bar");
+            Assert.AreEqual(-1, node2.CompareTo(node1));
+        }
+
+
+        [TestMethod]
+        public void NodeCompareToEqual()
+        {
+            SinglyLinkedListNode node1 = new SinglyLinkedListNode("foo");
+            SinglyLinkedListNode node2 = new SinglyLinkedListNode("foo");
+            Assert.AreEqual(0, node2.CompareTo(node1));
         }
 
         [TestMethod]

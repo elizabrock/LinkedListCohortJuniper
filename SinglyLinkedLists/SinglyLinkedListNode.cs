@@ -58,17 +58,20 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/system.icomparable.compareto.aspx
         public int CompareTo(Object obj)
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode other = obj as SinglyLinkedListNode;
+            if(other != null)
+            {
+                return this.Value.CompareTo(other.Value);
+            }
+            else
+            {
+                return 1;
+            }
         }
 
         public override bool Equals(object obj)
         {
-            SinglyLinkedListNode other = obj as SinglyLinkedListNode;
-            if(other != null)
-            {
-                return (this.Value == other.Value);
-            }
-            return false;
+            return (this.CompareTo(obj) == 0);
         }
 
         public override int GetHashCode()
