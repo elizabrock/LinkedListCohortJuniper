@@ -63,7 +63,39 @@ namespace SinglyLinkedLists
 
         public string ElementAt(int index)
         {
-            throw new NotImplementedException();
+            if (firstNode != null && index >= 0) {
+                SinglyLinkedListNode node = firstNode;
+                for (int i = 0; i <= index; i++)
+                {
+                    if (index == i)
+                    {
+                        break;
+                    }
+                    if (node.Next == null)
+                    {
+                        throw new ArgumentOutOfRangeException();
+                    }
+                    node = node.Next;
+                }
+
+                return node.Value;
+            } else if ( index < 0)
+            {
+                // Count the nodes ;-)
+                SinglyLinkedListNode node = firstNode;
+                int length = 1;
+                while(!node.IsLast())
+                {
+                    length++;
+                    node = node.Next;
+                }
+                //length++;
+                return this.ElementAt(length+index); //Positive index/offset
+            }
+            else
+            {
+                throw new ArgumentOutOfRangeException();
+            }
         }
 
         public string First()
