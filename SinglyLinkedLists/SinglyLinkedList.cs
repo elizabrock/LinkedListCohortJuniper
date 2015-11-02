@@ -46,6 +46,12 @@ namespace SinglyLinkedLists
             else
             {
                 // Actually attach new nodes to the end of the list.
+                SinglyLinkedListNode current_node = firstNode;
+                while (!current_node.IsLast())
+                {
+                    current_node = current_node.Next;
+                }
+                current_node.Next = new SinglyLinkedListNode(value);
             }
         }
 
