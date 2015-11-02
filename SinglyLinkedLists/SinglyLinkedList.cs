@@ -148,5 +148,32 @@ namespace SinglyLinkedLists
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            string left_br = "{";
+            string right_br = "}";
+            string space = " ";
+            string comma = ",";
+            string quote = "\"";
+            StringBuilder s = new StringBuilder(left_br);
+            SinglyLinkedListNode current_node = firstNode;
+            while (current_node != null) {
+                s.Append(space);
+                s.Append(quote);
+                s.Append(current_node.Value);
+                s.Append(quote);
+                if (current_node.IsLast())
+                {
+                    break;
+                } else
+                {
+                    s.Append(comma);
+                }
+                current_node = current_node.Next;
+            }
+            s.Append(space).Append(right_br);
+            return s.ToString();
+        }
     }
 }
