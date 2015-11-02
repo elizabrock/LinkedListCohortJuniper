@@ -125,7 +125,13 @@ namespace SinglyLinkedLists
         // HINT 3: If you highlight code and right click, you can use the refactor menu to extract a method for you...
         public string Last()
         {
-            throw new NotImplementedException();
+            if (firstNode == null)
+            {
+                return null;
+            } else
+            {
+                return this.ElementAt(-1);
+            }
         }
 
         public void Remove(string value)
