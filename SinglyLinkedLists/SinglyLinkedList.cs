@@ -166,7 +166,32 @@ namespace SinglyLinkedLists
 
         public int IndexOf(string value)
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode current_node = firstNode;
+            int position = 0;
+            bool found = false;
+            if (firstNode == null)
+            {
+                position = -1;
+            }
+            else
+            {
+                //position++;
+                while (current_node != null)
+                {
+                    if (value == current_node.Value)
+                    {
+                        found = true;
+                        break;
+                    }
+                    current_node = current_node.Next;
+                    position++;
+                }
+                if (!found)
+                {
+                    position = -1;
+                }
+            }
+            return position;
         }
 
         public bool IsSorted()
@@ -217,7 +242,20 @@ namespace SinglyLinkedLists
 
         public string[] ToArray()
         {
-            throw new NotImplementedException();
+            SinglyLinkedListNode node = firstNode;
+            if (node != null) {
+                string[] answer = new string[Count()];
+
+                for (int i = 0; i < Count(); i++)
+                {
+                    answer[i] = ElementAt(i);
+                }
+                return answer;
+            } else
+            {
+                return new string[] { };
+            }
+
         }
 
         public override string ToString()
