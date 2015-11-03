@@ -8,6 +8,7 @@ namespace SinglyLinkedLists
     public class SinglyLinkedList
     {
         private SinglyLinkedListNode firstNode;
+        private int count;
 
         public SinglyLinkedList()
         {
