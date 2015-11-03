@@ -132,16 +132,7 @@ namespace SinglyLinkedLists
             }
             else if (index < 0)
             {
-                // Count the nodes ;-)
-                SinglyLinkedListNode node = firstNode;
-                int length = 1;
-                while (!node.IsLast())
-                {
-                    length++;
-                    node = node.Next;
-                }
-                //length++;
-                return this.NodeAt(length + index); //Positive index/offset
+                return this.NodeAt(Count() + index); //Positive index/offset
             }
             else
             {
