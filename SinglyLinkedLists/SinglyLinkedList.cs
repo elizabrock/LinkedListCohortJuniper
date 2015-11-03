@@ -99,17 +99,19 @@ namespace SinglyLinkedLists
                 }
                 current_node.Next = new SinglyLinkedListNode(value);
             }
+            count++;
         }
 
         // NOTE: There is more than one way to accomplish this.  One is O(n).  The other is O(1).
         public int Count()
         {
-            throw new NotImplementedException();
+            return count;
         }
 
-        public string ElementAt(int index)
+        private SinglyLinkedListNode NodeAt(int index)
         {
-            if (firstNode != null && index >= 0) {
+            if (firstNode != null && index >= 0)
+            {
                 SinglyLinkedListNode node = firstNode;
                 for (int i = 0; i <= index; i++)
                 {
@@ -124,19 +126,20 @@ namespace SinglyLinkedLists
                     node = node.Next;
                 }
 
-                return node.Value;
-            } else if ( index < 0)
+                return node;
+            }
+            else if (index < 0)
             {
                 // Count the nodes ;-)
                 SinglyLinkedListNode node = firstNode;
                 int length = 1;
-                while(!node.IsLast())
+                while (!node.IsLast())
                 {
                     length++;
                     node = node.Next;
                 }
                 //length++;
-                return this.ElementAt(length+index); //Positive index/offset
+                return this.NodeAt(length + index); //Positive index/offset
             }
             else
             {
