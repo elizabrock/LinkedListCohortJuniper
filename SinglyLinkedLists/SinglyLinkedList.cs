@@ -18,24 +18,69 @@ namespace SinglyLinkedLists
         // READ: http://msdn.microsoft.com/en-us/library/aa691335(v=vs.71).aspx
         public SinglyLinkedList(params object[] values)
         {
-            throw new NotImplementedException();
+            count = 0;
+            
+            for (int i = 0; i < values.Length; i++)
+            {
+                AddLast(values[i].ToString());
+            }
         }
 
         // READ: http://msdn.microsoft.com/en-us/library/6x16t2tx.aspx
         public string this[int i]
         {
-            get { throw new NotImplementedException(); }
-            set { throw new NotImplementedException(); }
+            get { return ElementAt(i); }
+            set {
+                // ONly makes sense b/c Node is a trivial object.
+                NodeAt(i).Value = value;
+            }
+
         }
 
         public void AddAfter(string existingValue, string value)
         {
-            throw new NotImplementedException();
+            if (ElementAt(-1) == existingValue)
+            {
+                AddLast(value);
+            }
+            else
+            {
+
+                SinglyLinkedListNode current = firstNode;
+                bool found = false;
+                while (!current.IsLast())
+                {
+                    if (current.Value == existingValue)
+                    {
+                        SinglyLinkedListNode new_node = new SinglyLinkedListNode(value);
+                        SinglyLinkedListNode old_next = current.Next;
+                        new_node.Next = old_next;
+                        current.Next = new_node;
+
+                        found = true;
+                        break;
+                    }
+                    current = current.Next;
+                }
+
+                if (!found)
+                {
+                    throw new ArgumentException();
+                }
+            }
         }
 
         public void AddFirst(string value)
         {
-            throw new NotImplementedException();
+            if (firstNode == null)
+            {
+                AddLast(value);
+            } else
+            {
+                SinglyLinkedListNode old_first = firstNode;
+                firstNode = new SinglyLinkedListNode(value);
+                firstNode.Next = old_first;
+            }
         }
 
         public void AddLast(string value)
