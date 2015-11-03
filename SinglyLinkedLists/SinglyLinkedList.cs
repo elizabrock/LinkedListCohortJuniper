@@ -147,6 +147,11 @@ namespace SinglyLinkedLists
             }
         }
 
+        public string ElementAt(int index)
+        {
+            return NodeAt(index).Value;
+        }
+
         public string First()
         {
             if(null == firstNode)
@@ -185,7 +190,24 @@ namespace SinglyLinkedLists
 
         public void Remove(string value)
         {
-            throw new NotImplementedException();
+            int position = IndexOf(value);
+
+            if (position >= 0)
+            {
+                if (position == 0)
+                {
+                    firstNode = firstNode.Next;
+                }
+                else if (position >= 1 && !NodeAt(position).IsLast())
+                {
+                    NodeAt(position - 1).Next = NodeAt(position + 1);
+                }
+                else if (NodeAt(position).IsLast())
+                {
+                    NodeAt(position - 1).Next = null;
+                }
+                count--;
+            } 
         }
 
         public void Sort()
