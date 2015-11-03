@@ -58,6 +58,7 @@ namespace SinglyLinkedLists
                         current.Next = new_node;
 
                         found = true;
+                        count++;
                         break;
                     }
                     current = current.Next;
@@ -80,6 +81,7 @@ namespace SinglyLinkedLists
                 SinglyLinkedListNode old_first = firstNode;
                 firstNode = new SinglyLinkedListNode(value);
                 firstNode.Next = old_first;
+                count++;
             }
         }
 
