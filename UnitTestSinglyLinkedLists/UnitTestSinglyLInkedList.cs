@@ -497,7 +497,7 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille", "zoo", "cat");
             PrivateObject listObj = new PrivateObject(list);
-            SinglyLinkedListNode nodeZero = (SinglyLinkedListNode) listObj.Invoke("NodeAt", 0);
+            SinglyLinkedListNode nodeZero = (SinglyLinkedListNode) listObj.Invoke("NodeAt", new object[] { 0 });
             listObj.Invoke("SwapWithNext", null, nodeZero);
 
             var expected = new string[] { "bar", "foo", "grille", "zoo", "cat" };
@@ -509,11 +509,11 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille", "zoo", "cat");
             PrivateObject listObj = new PrivateObject(list);
-            SinglyLinkedListNode nodeZero = (SinglyLinkedListNode)listObj.Invoke("NodeAt", 0);
+            SinglyLinkedListNode nodeZero = (SinglyLinkedListNode)listObj.Invoke("NodeAt", new object[] { 0 });
             SinglyLinkedListNode nodeOne = (SinglyLinkedListNode)listObj.Invoke("NodeAt", 1);
             listObj.Invoke("SwapWithNext", nodeZero, nodeOne);
 
-            var expected = new string[] { "bar", "foo", "grille", "zoo", "cat" };
+            var expected = new string[] { "foo", "grille", "bar", "zoo", "cat" };
             CollectionAssert.AreEqual(expected, list.ToArray());
         }
 
@@ -522,8 +522,8 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedList list = new SinglyLinkedList("foo", "bar", "grille", "zoo", "cat");
             PrivateObject listObj = new PrivateObject(list);
-            SinglyLinkedListNode nodeThree = (SinglyLinkedListNode)listObj.Invoke("NodeAt", 3);
-            SinglyLinkedListNode nodeFour = (SinglyLinkedListNode)listObj.Invoke("NodeAt", 4);
+            SinglyLinkedListNode nodeThree = (SinglyLinkedListNode)listObj.Invoke("NodeAt", 2);
+            SinglyLinkedListNode nodeFour = (SinglyLinkedListNode)listObj.Invoke("NodeAt", 3);
             listObj.Invoke("SwapWithNext", nodeThree, nodeFour);
 
             var expected = new string[] { "foo", "bar", "grille", "cat", "zoo" };

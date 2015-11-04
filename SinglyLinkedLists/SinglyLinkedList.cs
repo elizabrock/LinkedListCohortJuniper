@@ -251,26 +251,40 @@ namespace SinglyLinkedLists
             {
                 return;
             }
-            SinglyLinkedListNode left = firstNode;
-            SinglyLinkedListNode right = firstNode.Next;
+            SinglyLinkedListNode previous = null;
+            SinglyLinkedListNode current = firstNode;
+            SinglyLinkedListNode next = firstNode.Next;
             bool swapOccurred = false;
-            while (right != null)
+            while (next != null)
             {
-                if (left > right)
+                if (current > next)
                 {
-                    // the nodes ought to be swapped!
-                    string value = left.Value;
-                    left.Value = right.Value;
-                    right.Value = value;
+                    SwapWithNext(previous, current);
                     swapOccurred = true;
                 }
-                left = right;
-                right = left.Next;
+                previous = current;
+                current = next;
+                next = current.Next;
             }
             if(swapOccurred)
             {
                 Sort();
             }
+        }
+
+        private void SwapWithNext(SinglyLinkedListNode previous, SinglyLinkedListNode swapee)
+        {
+            SinglyLinkedListNode swapWith = swapee.Next;
+            if (previous == null)
+            {
+                firstNode = swapWith;
+
+            } else
+            {
+                previous.Next = swapWith;
+            }
+            swapee.Next = swapWith.Next;
+            swapWith.Next = swapee;
         }
 
         public string[] ToArray()
