@@ -423,6 +423,20 @@ namespace UnitTestSinglyLinkedLists
             Assert.IsTrue(list.IsSorted());
         }
 
+        [TestMethod]
+        public void IsSortedOnUnsortedLongerList()
+        {
+            SinglyLinkedList list = new SinglyLinkedList("abc", "def", "foo", "bar");
+            Assert.IsFalse(list.IsSorted());
+        }
+
+        [TestMethod]
+        public void IsSortedOnSortedLongerList()
+        {
+            SinglyLinkedList list = new SinglyLinkedList("abc", "bar", "def", "foo", "zoo");
+            Assert.IsTrue(list.IsSorted());
+        }
+
         // This test is primarily to ensure that attempting to sort an empty list doesn't throw any exceptions
         [TestMethod]
         public void SortEmptyList()
