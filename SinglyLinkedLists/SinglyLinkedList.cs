@@ -247,7 +247,33 @@ namespace SinglyLinkedLists
 
         public void Sort()
         {
-            throw new NotImplementedException();
+            if(Count() == 0)
+            {
+                return;
+            }
+            while (true)
+            {
+                SinglyLinkedListNode left = firstNode;
+                SinglyLinkedListNode right = firstNode.Next;
+                bool swapOccurred = false;
+                while (right != null)
+                {
+                    if (left > right)
+                    {
+                        // the nodes ought to be swapped!
+                        string value = left.Value;
+                        left.Value = right.Value;
+                        right.Value = value;
+                        swapOccurred = true;
+                    }
+                    left = right;
+                    right = left.Next;
+                }
+                if(!swapOccurred)
+                {
+                    return;
+                }
+            }
         }
 
         public string[] ToArray()
