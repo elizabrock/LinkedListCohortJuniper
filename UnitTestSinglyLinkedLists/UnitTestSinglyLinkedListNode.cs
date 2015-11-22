@@ -14,9 +14,24 @@ namespace UnitTestSinglyLinkedLists
         {
             SinglyLinkedListNode node = new SinglyLinkedListNode("foo");
             Assert.AreEqual("foo", node.Value);
-        }
+		}
 
-        [TestMethod]
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void NodeConstructorDoesntAllowNull()
+		{
+			SinglyLinkedListNode node = new SinglyLinkedListNode(null);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException))]
+		public void NodeValueCantBeNull()
+		{
+			SinglyLinkedListNode node = new SinglyLinkedListNode("foo");
+			node.Value = null;
+		}
+
+		[TestMethod]
         public void NodeDefaultNext()
         {
             SinglyLinkedListNode node = new SinglyLinkedListNode("foo");

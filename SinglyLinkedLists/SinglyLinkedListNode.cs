@@ -33,7 +33,13 @@ namespace SinglyLinkedLists
         public string Value 
         {
             get { return value; }
-            set { this.value = value; }
+            set {
+				if (value == null)
+				{
+					throw new ArgumentException();
+				}
+				this.value = value;
+			}
         }
 
         public static bool operator <(SinglyLinkedListNode node1, SinglyLinkedListNode node2)
@@ -50,7 +56,7 @@ namespace SinglyLinkedLists
 
         public SinglyLinkedListNode(string value)
         {
-			this.value = value;
+			Value = value;
 
             // Used by the visualizer:
             allNodes.Add(this);
